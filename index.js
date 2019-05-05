@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import './style.less';
+import './layout.less';
 import {
   AppTitle,
   AppSidebar,
@@ -8,7 +8,7 @@ import {
   AppContent,
   AppStatusbar,
   AppLayout
-} from './entities.js'
+} from './layout.js'
 
 class App extends Component {
   constructor() {

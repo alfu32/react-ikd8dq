@@ -1,15 +1,5 @@
 import React, { Component } from 'react';
-import { kebapCase } from './utils.js'
-export function classifyItems(array,classes){
-    return array.reduce( (a,c) => {
-        if(classes.indexOf(c.type) > -1){
-            (a[c.type.name] = a[c.type.name]||[]).push(c)
-        }else{
-            a.default.push(c);
-        }
-        return a;
-    },{default:[]})
-}
+import { kebapCase,classifyItems } from './utils.js'
 
 export class ComponentWrapper extends Component{
     render() {

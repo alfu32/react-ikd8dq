@@ -1,8 +1,16 @@
-
-[slot='AppLayout']{
+@margin: 10px;
+@side: 300px;
+@top: 50px;
+AppLayout{
   border: 1px solid #333;
   AppTitle{
     border:1px solid #a00;
+    position:absolute;
+    top: @margin;
+    left: @margin;
+    width:@margin;
+    max-width:@margin;
+    min-width:@margin;
   }
   AppSidebar{
     border: 1px solid #aa0;
