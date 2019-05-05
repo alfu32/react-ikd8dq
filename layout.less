@@ -1,15 +1,15 @@
 @margin: 10px;
-@side: 300px;
-@top: 50px;
+@sideWidth: 300px;
+@toolbarWidth: 50px;
 .fixWidth{
-    width:@side;
-    max-width:@side;
-    min-width:@side;
+    width:@sideWidth;
+    max-width:@sideWidth;
+    min-width:@sideWidth;
 }
 .fixHeight{
-    height:@top;
-    max-height:@top;
-    min-height:@top;
+    height:@toolbarWidth;
+    max-height:@toolbarWidth;
+    min-height:@toolbarWidth;
 }
 
 AppLayout{
@@ -25,10 +25,10 @@ AppLayout{
   AppSidebar{
     border: 1px solid #aa0;
     position:absolute;
-    top: 2*@margin + @top;
+    top: 2*@margin + @toolbarWidth;
     left: @margin;
     &:extend(.fixWidth);
-    bottom: @margin;
+    bottom: @margin + @sideWidth;
   }
   AppToolbar{
     border: 1px solid #0a0;
@@ -40,9 +40,10 @@ AppLayout{
   }
   AppContent{
     border: 1px solid #0aa;
-    top: 2*@margin + @top;
-    left: @margin;
-    bottom: @margin;
+    position:absolute;
+    top: 2*@margin + @toolbarWidth;
+    left: 2*@margin + @sideWidth;
+    bottom: 2*@margin + @toolbarWidth;
     right: @margin;
   }
   AppStatusbar{
