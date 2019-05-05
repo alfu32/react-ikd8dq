@@ -8,11 +8,16 @@ export class ComponentWrapper extends Component{
 }
 export class MultislotTransclusionComponent extends Component{
     static classes=[];
+    nodeDecorator(node,klass){
+      console.log(node);
+      //node.className=kebapCase(klass.name)
+      return node;
+    }
     render() {
         const classification = classifyItems(this.props.children,this.constructor.classes)
-        return <div>
+        return <div class={kebapCase(this.constructor.name)}>
             {this.constructor.classes.map( 
-                klass => <div slot={/*kebapCase*/(klass.name)}>{classification[klass.name]||[]}</div>
+                klass => this.nodeDecorator(<div className={kebapCase(klass.name)}>{classification[klass.name]||[]}</div>,klass)
             )}
         </div>
     }

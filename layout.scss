@@ -1,0 +1,83 @@
+$margin: 10px;
+$sideWidth: 300px;
+$toolbarMinWidth: 50px;
+$toolbarWidth: 50px;
+%fixWidth{
+    width: $sideWidth;
+    max-width: $sideWidth;
+    min-width: $sideWidth;
+}
+%fixMinWidth{
+    width: $toolbarMinWidth;
+    max-width: $toolbarMinWidth;
+    min-width: $toolbarMinWidth;
+}
+%fixHeight{
+    height: $toolbarWidth;
+    max-height: $toolbarWidth;
+    min-height: $toolbarWidth;
+}
+
+.app-layout{
+  .app-title{
+    border: 1px solid #a00;
+    position: absolute;
+    top: $margin;
+    left: $margin;
+    @extend %fixHeight;
+    @extend %fixWidth;
+  }
+  .app-sidebar{
+    border: 1px solid #aa0;
+    position: absolute;
+    top: 2*$margin + $toolbarWidth;
+    left: $margin;
+    @extend %fixWidth;
+    bottom: 2*$margin + $toolbarWidth;
+  }
+  .app-toolbar{
+    border: 1px solid #0a0;
+    position: absolute;
+    top: $margin;
+    left: 2*$margin + $sideWidth;
+    right: $margin;
+    @extend %fixHeight;
+  }
+  .app-content{
+    border: 1px solid #0aa;
+    position: absolute;
+    top: 2*$margin + $toolbarWidth;
+    left: 2*$margin + $sideWidth;
+    bottom: 2*$margin + $toolbarWidth;
+    right: $margin;
+  }
+  .app-statusbar{
+    border: 1px solid #00a;
+    position: absolute;
+    left: $margin;
+    right: $margin;
+    bottom: $margin;
+    @extend %fixHeight;
+  }
+}
+.app-layout[sidebar-collapsed='false']{
+  @extend .app-layout;
+  .app-title{
+    left: $margin;
+    @extend %fixMinWidth;
+  }
+  .app-sidebar{
+    left: $margin;
+    @extend %fixMinWidth;
+    bottom: 2*$margin + $toolbarMinWidth;
+  }
+  .app-toolbar{
+    left: 2*$margin + $toolbarMinWidth;
+  }
+  .app-content{
+    top: 2*$margin + $toolbarMinWidth;
+    left: 2*$margin + $toolbarMinWidth;
+    bottom: 2*$margin + $toolbarMinWidth;
+    right: $margin;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import './layout.sass';
+import './layout.scss';
 import {
   AppTitle,
   AppSidebar,
@@ -17,7 +17,6 @@ class App extends Component {
       name: 'React'
     };
   }
-
   render() {
     return (
       <AppLayout>
