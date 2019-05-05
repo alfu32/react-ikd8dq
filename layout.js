@@ -1,5 +1,4 @@
 import React from 'react';
-import './layout.less';
 
 import { ComponentWrapper,MultislotTransclusionComponent } from './lib/component.base.jsx'
 

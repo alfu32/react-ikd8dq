@@ -1,0 +1,51 @@
+$margin: 10px;
+$sideWidth: 300px;
+$toolbarWidth: 50px;
+%fixWidth
+    width: $sideWidth;
+    max-width: $sideWidth;
+    min-width: $sideWidth;
+
+%fixHeight
+    height: $toolbarWidth;
+    max-height: $toolbarWidth;
+    min-height: $toolbarWidth;
+
+
+AppLayout
+  border: 1px solid #333;
+  AppTitle
+    border: 1px solid #a00;
+    position: absolute;
+    top: $margin;
+    left: $margin;
+    @extend %fixHeight;
+    @extend %fixWidth;
+  
+  AppSidebar
+    border: 1px solid #aa0;
+    position: absolute;
+    top: 2*$margin + $toolbarWidth;
+    left: $margin;
+    @extend %fixWidth;
+    bottom: $margin + $sideWidth;
+  
+  AppToolbar
+    border: 1px solid #0a0;
+    position: absolute;
+    top: $margin;
+    left: $margin;
+    right: $margin;
+    @extend %fixHeight;
+  
+  AppContent
+    border: 1px solid #0aa;
+    position: absolute;
+    top: 2*$margin + $toolbarWidth;
+    left: 2*$margin + $sideWidth;
+    bottom: 2*$margin + $toolbarWidth;
+    right: $margin;
+  
+  AppStatusbar
+    border: 1px solid #00a;
+  
