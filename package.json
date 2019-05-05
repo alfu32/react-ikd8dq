@@ -5,7 +5,8 @@
   "dependencies": {
     "less": "^3.9.0",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "rxjs": "^6.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

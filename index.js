@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import './style.less';
+import {
+  AppTitle,
+  AppSidebar,
+  AppToolbar,
+  AppContent,
+  AppStatusbar,
+  AppLayout
+} from './entities.js'
 
 class App extends Component {
   constructor() {
@@ -13,12 +20,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
+      <AppLayout>
+        <AppTitle>Title</AppTitle>
+        <AppSidebar>Sidebar</AppSidebar>
+        <AppToolbar>Toolbar</AppToolbar>
+        <AppContent>
+            <h1>It Works</h1>
+            <p>message</p>
+        </AppContent>
+      </AppLayout>
     );
   }
 }
