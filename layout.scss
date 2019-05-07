@@ -1,7 +1,12 @@
-$margin: 10px;
+$margin: 0px;
 $sideWidth: 300px;
 $toolbarMinWidth: 50px;
 $toolbarWidth: 50px;
+$baseColor: 10;
+$toolbarColor: hsl( ($baseColor+0)%360  ,80%,50%);
+$titleColor: hsl( ($baseColor+0)%360 ,80%,50%);
+$sidebarColor: hsl( ($baseColor+120)%360 ,80%,70%);
+$statusbarColor: hsl( ($baseColor+240)%360 ,10%,50%);
 %fixWidth{
     width: $sideWidth;
     max-width: $sideWidth;
@@ -17,50 +22,65 @@ $toolbarWidth: 50px;
     max-height: $toolbarWidth;
     min-height: $toolbarWidth;
 }
+%protobox{
+  position: absolute;
+  transition: all ease-in 0.1s;
+  box-sizing: border-box;
+}
 
-.app-layout{
+.app-layout>{
+  position: relative;
   .app-title{
-    border: 1px solid #a00;
-    position: absolute;
+    //border: 1px solid #a00;
+    background: $titleColor;
+    @extend %protobox;
     top: $margin;
     left: $margin;
     @extend %fixHeight;
     @extend %fixWidth;
   }
   .app-sidebar{
-    border: 1px solid #aa0;
-    position: absolute;
+    //border: 1px solid #aa0;
+    background: $sidebarColor;
+    @extend %protobox;
     top: 2*$margin + $toolbarWidth;
     left: $margin;
     @extend %fixWidth;
     bottom: 2*$margin + $toolbarWidth;
+    overflow: hidden;
+    border-right: 1px solid $titleColor;
   }
   .app-toolbar{
-    border: 1px solid #0a0;
-    position: absolute;
+    //border: 1px solid #0a0;
+    background: $toolbarColor;
+    @extend %protobox;
     top: $margin;
     left: 2*$margin + $sideWidth;
     right: $margin;
     @extend %fixHeight;
+    overflow: hidden;
   }
   .app-content{
-    border: 1px solid #0aa;
-    position: absolute;
+    //border: 1px solid #0aa;
+    @extend %protobox;
     top: 2*$margin + $toolbarWidth;
     left: 2*$margin + $sideWidth;
     bottom: 2*$margin + $toolbarWidth;
     right: $margin;
+    overflow-y: auto;
   }
   .app-statusbar{
-    border: 1px solid #00a;
-    position: absolute;
+    //border: 1px solid #00a;
+    background: $statusbarColor;
+    @extend %protobox;
     left: $margin;
     right: $margin;
     bottom: $margin;
     @extend %fixHeight;
+    overflow: hidden;
   }
 }
-.app-layout[sidebar-collapsed='false']{
+.app-layout[sidebar-collapsed='false']>{
   @extend .app-layout;
   .app-title{
     left: $margin;

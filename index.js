@@ -26,6 +26,41 @@ class App extends Component {
         <AppContent>
             <h1>It Works</h1>
             <p>message</p>
+            <div style={{ position:"relative", minHeight:'440px' }}>
+              <AppLayout>
+                <AppTitle>Layout 1</AppTitle>
+                <AppSidebar>Sidebar</AppSidebar>
+                <AppToolbar>Toolbar</AppToolbar>
+                <AppContent>
+                    <p>message 1</p>
+                </AppContent>
+              </AppLayout>
+            </div>
+            
+            <div style={{ position:"relative", minHeight:'440px' }}>
+              <AppLayout>
+                <AppTitle>Layout 2</AppTitle>
+                <AppSidebar>Sidebar</AppSidebar>
+                <AppToolbar>Toolbar</AppToolbar>
+                <AppContent>
+                    <p>message 2</p>
+                </AppContent>
+              </AppLayout>
+            </div>
+            
+            <div style={{ position:"relative", minHeight:'440px' }}>
+              <AppLayout>
+                <AppTitle>Layout 2</AppTitle>
+                <AppSidebar>Sidebar</AppSidebar>
+                <AppToolbar>Toolbar</AppToolbar>
+                <AppContent>
+                    <p>message 3</p>
+                </AppContent>
+                <AppStatusbar>
+                  <em>status 3</em>
+                </AppStatusbar>
+              </AppLayout>
+            </div>
         </AppContent>
       </AppLayout>
     );
