@@ -26,7 +26,8 @@ class App extends Component {
         <AppContent>
             <h1>It Works</h1>
             <p>message</p>
-            <div style={{ position:"relative", minHeight:'440px' }}>
+            <b> one app layout inside another one's content</b>
+            <div style={{ position:"relative", minHeight:'440px',margin:'20px' }}>
               <AppLayout>
                 <AppTitle>Layout 1</AppTitle>
                 <AppSidebar>Sidebar</AppSidebar>
@@ -37,18 +38,32 @@ class App extends Component {
               </AppLayout>
             </div>
             
-            <div style={{ position:"relative", minHeight:'440px' }}>
+            <b> another app layout inside another one's content</b>
+            <div style={{ position:"relative", minHeight:'440px',margin:'20px' }}>
               <AppLayout>
                 <AppTitle>Layout 2</AppTitle>
                 <AppSidebar>Sidebar</AppSidebar>
                 <AppToolbar>Toolbar</AppToolbar>
                 <AppContent>
                     <p>message 2</p>
+                    
+                    <b> multiple nested layouts </b>
+                    <div style={{ position:"relative", minHeight:'840px',margin:'20px' }}>
+                      <AppLayout>
+                        <AppTitle>subLayout 2.4</AppTitle>
+                        <AppSidebar>Sidebar</AppSidebar>
+                        <AppToolbar>Toolbar</AppToolbar>
+                        <AppContent>
+                            <p>message 2.4</p>
+                        </AppContent>
+                      </AppLayout>
+                    </div>
                 </AppContent>
               </AppLayout>
             </div>
             
-            <div style={{ position:"relative", minHeight:'440px' }}>
+            <b> a third app layout inside main app layout </b>
+            <div style={{ position:"relative", minHeight:'440px',margin:'20px' }}>
               <AppLayout>
                 <AppTitle>Layout 2</AppTitle>
                 <AppSidebar>Sidebar</AppSidebar>

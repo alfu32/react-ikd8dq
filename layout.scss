@@ -38,6 +38,19 @@ $statusbarColor: hsl( ($baseColor+240)%360 ,10%,50%);
     left: $margin;
     @extend %fixHeight;
     @extend %fixWidth;
+    .layout-button{
+      display: inline-block;
+      background-image: url(menu-btn.svg);
+      //background-repeat: no-repeat;
+      background-size: $toolbarWidth;
+      background-position: 50% 50%;
+      min-width: $toolbarWidth;
+      min-height: $toolbarWidth;
+      cursor: pointer;
+    }
+    .layout-button:hover{
+      background-color: hsl(210,70%,80%)
+    }
   }
   .app-sidebar{
     //border: 1px solid #aa0;

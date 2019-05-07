@@ -21,7 +21,7 @@ export class AppLayout extends Component{
   render(){
     const classification = classifyItems(this.props.children,this.constructor.classes)
     return <div className="app-layout" sidebar-collapsed={this.state.sidebar.toString()}>
-      <div className="app-title"><button onClick={this.toggleSidebar.bind(this)}>T</button>{classification['AppTitle']}</div>
+      <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
       <div className="app-toolbar">{classification['AppToolbar']}</div>
       <div className="app-content">{classification['AppContent']}</div>
