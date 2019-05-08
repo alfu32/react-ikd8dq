@@ -9,14 +9,15 @@ export class AppContent extends ComponentWrapper { }
 export class AppStatusbar extends ComponentWrapper { }
 export class AppLayout extends Component{
     /** order counts */
-    static classes = [AppTitle, AppSidebar, AppToolbar, AppContent, AppStatusbar]
+    static classes = [AppTitle, AppSidebar, AppToolbar, AppContent, AppStatusbar];
   state={
     sidebar:true,
-    color:true
-  }
+    color:true,
+    scrolled:'in'
+  };
   scrollContent(evt){
-    console.log( evt.target.getBoundingClientRect().top )
-    console.log( this )
+    const d=evt.target.getBoundingClientRect().top - evt.target.children[0].getBoundingClientRect().top;
+    this.setState({...this.state,scrolled:d<0?'out':'in'});
   }
   toggleSidebar(){
     this.setState({...this.state,sidebar:!this.state.sidebar});
@@ -28,7 +29,7 @@ export class AppLayout extends Component{
       <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
       <div className="app-toolbar">{classification['AppToolbar']}</div>
-      <div className="app-content" onScroll={this.scrollContent}>{classification['AppContent']}</div>
+      <div className="app-content" onScroll={this.scrollContent.bind(this)}>{classification['AppContent']}</div>
       <div className="app-statusbar">{classification['AppStatusbar']}</div>
     </div>
   }
