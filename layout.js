@@ -15,7 +15,8 @@ export class AppLayout extends Component{
     color:true
   }
   scrollContent(evt){
-    console.log(evt.target.getBoundingClientRect().top)
+    console.log( evt.target.getBoundingClientRect().top )
+    console.log( this )
   }
   toggleSidebar(){
     this.setState({...this.state,sidebar:!this.state.sidebar});
