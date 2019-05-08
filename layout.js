@@ -14,6 +14,9 @@ export class AppLayout extends Component{
     sidebar:true,
     color:true
   }
+  scrollContent(evt){
+    console.log(evt.target.getBoundingClientRect().top)
+  }
   toggleSidebar(){
     this.setState({...this.state,sidebar:!this.state.sidebar});
     console.log('toggleSidebar',this.state);
@@ -24,7 +27,7 @@ export class AppLayout extends Component{
       <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
       <div className="app-toolbar">{classification['AppToolbar']}</div>
-      <div className="app-content">{classification['AppContent']}</div>
+      <div className="app-content" onScroll={this.scrollContent}>{classification['AppContent']}</div>
       <div className="app-statusbar">{classification['AppStatusbar']}</div>
     </div>
   }
