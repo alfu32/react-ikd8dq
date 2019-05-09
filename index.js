@@ -9,6 +9,7 @@ import {
   AppStatusbar,
   AppLayout
 } from './layout.js'
+import { range } from './lib/utils.js'
 
 class App extends Component {
   constructor() {
@@ -55,6 +56,7 @@ class App extends Component {
                         <AppToolbar>Toolbar</AppToolbar>
                         <AppContent>
                             <p>message 2.4</p>
+                            { range(100).map( (v,i) => <pre>Line {i}</pre> )}
                         </AppContent>
                       </AppLayout>
                     </div>

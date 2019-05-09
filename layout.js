@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
 import { ComponentWrapper,MultislotTransclusionComponent } from './lib/component.base.jsx'
-import { kebapCase, classifyItems, guid } from './lib/utils.js'
+import { kebapCase, classifyItems, guid, id } from './lib/utils.js'
 
 export class AppTitle extends ComponentWrapper { }
 export class AppSidebar extends ComponentWrapper { }
@@ -17,7 +17,7 @@ export class AppLayout extends Component{
     id:guid(4,4)
   };
   scrollContent(evt){
-    //console.log('.' + evt.target.className + '#' + evt.target.id);
+    console.log('.' + evt.target.className + '#' + evt.target.id);
     const d=evt.target.getBoundingClientRect().top - evt.target.children[0].getBoundingClientRect().top;
     this.setState({...this.state,scrolled:d<0?'inside':'outside'});
   }
@@ -31,7 +31,7 @@ export class AppLayout extends Component{
       <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
       <div className="app-toolbar">{classification['AppToolbar']}</div>
-      <div className="app-content" onScroll={this.scrollContent.bind(this)}>{classification['AppContent']}</div>
+      <div className="app-content" id={this.state.id} onScroll={this.scrollContent.bind(this)}>{classification['AppContent']}</div>
       <div className="app-statusbar">{classification['AppStatusbar']}</div>
     </div>
   }
