@@ -32,12 +32,9 @@ export class Tabs extends Component{
       const cls=classification = classifyItems(this.props.children,this.constructor.classes)
       return a;
     },{title:[],content:[]})
-    return <div className="app-layout" sidebar-collapsed={this.state.sidebar.toString()}>
-      <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
-      <div className="app-sidebar">{classification['AppSidebar']}</div>
-      <div className="app-toolbar">{classification['AppToolbar']}</div>
-      <div className="app-content">{classification['AppContent']}</div>
-      <div className="app-statusbar">{classification['AppStatusbar']}</div>
+    return <div className="tabs-layout" sidebar-collapsed={this.state.sidebar.toString()}>
+      <div className="tabs-titles"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
+      <div className="tabs-content">{classification['AppSidebar']}</div>
     </div>
   }
 }
