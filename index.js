@@ -35,6 +35,7 @@ class App extends Component {
                 <AppToolbar>Toolbar</AppToolbar>
                 <AppContent>
                     <p>message 1</p>
+                    { range(100).map( (v,i) => <pre>Line {i}</pre> )}
                 </AppContent>
               </AppLayout>
             </div>
