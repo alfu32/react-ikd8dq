@@ -6,7 +6,10 @@ export class Tab extends Component{
   static classes = [TabTitle]
   render(){
     const classification = classifyItems(this.props.children,this.constructor.classes)
-    return <div></div>
+    return <div>
+      <div class="tab-title">{classification['TabTitle']}</div>
+      <div class="tab-content">{classification['TabContent']}{classification['default']}</div>
+    </div>
   }
 }
 export class TabTitle extends ComponentWrapper{}
@@ -25,6 +28,10 @@ export class Tabs extends Component{
   }
   render(){
     const classification = classifyItems(this.props.children,this.constructor.classes)
+    tabTitles=classification["Tab"].reduce( a,t => {
+      const cls=classification = classifyItems(this.props.children,this.constructor.classes)
+      return a;
+    },{title:[],content:[]})
     return <div className="app-layout" sidebar-collapsed={this.state.sidebar.toString()}>
       <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
