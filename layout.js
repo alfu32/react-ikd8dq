@@ -13,16 +13,14 @@ export class AppLayout extends Component{
   state={
     sidebar:true,
     color:true,
-    scrolled:'inside',
-    id:id(),/**/
-    guid: guid(4,4)
+    scrolled:'inside'
   };
-  scrolled='inside';
   scrollContent(evt){
-    console.log('.' + evt.target.className + '#' + evt.target.id);
     const d=evt.target.getBoundingClientRect().top - evt.target.children[0].getBoundingClientRect().top;
-    this.setState({...this.state, scrolled:d<0?'inside':'outside'});
-    this.scrolled=d<0?'inside':'outside'
+    this.setState({...this.state, scrolled: d<0?'inside':'outside'});
+    evt.preventDefault();
+    evt.stopPropagation();
+    return false;
   }
   toggleSidebar(){
     this.setState({...this.state,sidebar:!this.state.sidebar});
@@ -30,11 +28,11 @@ export class AppLayout extends Component{
   }
   render(){
     const classification = classifyItems(this.props.children,this.constructor.classes)
-    return <div className="app-layout" guid={this.state.guid} sidebar-collapsed={this.state.sidebar.toString()} content-scroll={this.scrolled}>
+    return <div className="app-layout" sidebar-collapsed={this.state.sidebar.toString()} content-scroll={this.state.scrolled}>
       <div className="app-title"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="app-sidebar">{classification['AppSidebar']}</div>
       <div className="app-toolbar">{classification['AppToolbar']}</div>
-      <div className="app-content" id={this.state.id} onScroll={this.scrollContent.bind(this)}>{classification['AppContent']}</div>
+      <div className="app-content" onScroll={this.scrollContent.bind(this)}>{classification['AppContent']}</div>
       <div className="app-statusbar">{classification['AppStatusbar']}</div>
     </div>
   }
