@@ -22,3 +22,7 @@ export class MultislotTransclusionComponent extends Component{
         </div>
     }
 }
+
+export class MultislotClassifier{
+  classifier(children){}
+}

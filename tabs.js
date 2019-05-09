@@ -22,16 +22,21 @@ export class Tabs extends Component{
     sidebar:true,
     color:true
   }
+  classifier(ch) {
+    return classifyItems(cs,this.constructor.classes)
+  }
   switchTab(){
     this.setState({...this.state,sidebar:!this.state.sidebar});
     console.log('toggleSidebar',this.state);
   }
   render(){
     const classification = classifyItems(this.props.children,this.constructor.classes)
+    const 
     tabTitles=classification["Tab"].reduce( a,t => {
       const cls=classification = classifyItems(this.props.children,this.constructor.classes)
       return a;
     },{title:[],content:[]})
+    this.props.children.reduce
     return <div className="tabs-layout" sidebar-collapsed={this.state.sidebar.toString()}>
       <div className="tabs-titles"><div className='layout-button' onClick={this.toggleSidebar.bind(this)}></div>{classification['AppTitle']}</div>
       <div className="tabs-content">{classification['AppSidebar']}</div>
