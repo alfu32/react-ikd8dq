@@ -8,7 +8,7 @@ import {
   AppContent,
   AppStatusbar,
   AppLayout
-} from './layout.js'
+} from './layout'
 import { range } from './lib/utils.js'
 
 class App extends Component {

@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import { ComponentWrapper,MultislotTransclusionComponent } from './lib/component.base.jsx'
 import { kebapCase, classifyItems, guid, id } from './lib/utils.js'
 
@@ -7,6 +7,7 @@ export class AppSidebar extends ComponentWrapper { }
 export class AppToolbar extends ComponentWrapper { }
 export class AppContent extends ComponentWrapper { }
 export class AppStatusbar extends ComponentWrapper { }
+
 export class AppLayout extends Component {
     /** order counts */
   static classes = [AppTitle, AppSidebar, AppToolbar, AppContent, AppStatusbar];
